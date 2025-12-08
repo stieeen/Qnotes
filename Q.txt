@@ -1,0 +1,9 @@
+**QgsGeometryCheck**
+
+# QgsVectorLayer	               Работа с векторными слоями (чтение, создание)
+# QgsFeature	                   Представление одного объекта (строки) в слое
+# QgsProject	                   Доступ к проекту QGIS и его слоям
+# QgsVectorFileWriter	           Сохранение векторных слоев в файлы
+# QgsCoordinateReferenceSystem	 Определение системы координат (CRS)
+
+csv = QgsProject.instance().mapLayersByName("izuch")[0]  
