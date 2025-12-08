@@ -1,9 +1,27 @@
 **QgsGeometryCheck**
 
-# QgsVectorLayer	               Работа с векторными слоями (чтение, создание)
-# QgsFeature	                   Представление одного объекта (строки) в слое
-# QgsProject	                   Доступ к проекту QGIS и его слоям
-# QgsVectorFileWriter	           Сохранение векторных слоев в файлы
-# QgsCoordinateReferenceSystem	 Определение системы координат (CRS)
+# QgsVectorLayer - Работа с векторными слоями (чтение, создание)
+# QgsFeature - Представление одного объекта (строки) в слое
+# QgsProject - Доступ к проекту QGIS и его слоям
+# QgsVectorFileWriter - Сохранение векторных слоев в файлы
+# QgsCoordinateReferenceSystem - Определение системы координат (CRS)
 
-csv = QgsProject.instance().mapLayersByName("izuch")[0]  
+x = QgsProject.instance().mapLayersByName("Layer_name")[0]  
+new_layer = QgsVectorLayer("Polygon", "new_layer_name", "memory")
+
+
+**Классы**
+QgsProject
+QgsMapLayer
+
+
+
+**Методы**
+.instance() - статический метод, который возвращает единственный экземпляр текущего открытого проекта
+.mapLayersByName() - метод объекта проекта, который ищет слои по имени (возвращает список, даже если слой один)
+
+layer_by_id = QgsProject.instance().mapLayer("Layer_name")
+all_layers = QgsProject.instance().mapLayers()  # Словарь {id: слой}
+layer_toc = QgsProject.instance().layerTreeRoot().findLayer(layer_id)
+vector_layers = [layer for layer in QgsProject.instance().mapLayers().values() 
+                 if isinstance(layer, QgsVectorLayer)]
